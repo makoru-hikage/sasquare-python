@@ -1,15 +1,16 @@
-import math
+from math import floor
+from math import ceil
 
 def get_row_index(base, cell_index):
     i = cell_index
-    return math.ceil(i/base)
+    return ceil(i/base)
 
 def get_column_index(base, cell_index):
     i = cell_index
     return i - base * int(math.ceil(i/base)) + base
 
 def get_median_base(base):
-    return int(math.floor((base + 1) / 2))
+    return int(floor((base + 1) / 2))
 
 def get_opposite_index(length, index):
     return length + 1 - index
