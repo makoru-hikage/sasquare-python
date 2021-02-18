@@ -14,7 +14,7 @@ def get_median_base(base):
 def get_opposite_index(length, index):
     return length + 1 - index
 
-def get_intersection_index (row_index, column_index, base):
+def get_intersection_index (base, row_index, column_index):
     r = row_index
     c = column_index
     return c + r*base - base
