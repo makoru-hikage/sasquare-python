@@ -5,5 +5,5 @@ def compose (*func):
         return lambda x : f(g(x))
     return reduce(compose_pair, func, lambda x: x)
 
-def space_leftpad_number (number, width):
+def space_leftpad_number (width, number):
     return str(number).rjust(width, ' ')
