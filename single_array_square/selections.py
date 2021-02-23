@@ -124,7 +124,7 @@ def select_bottomright_corner(base):
 def select_bottomleft_corner(base):
     return base*base
 
-def select_all_corners(base)
+def select_all_corners(base):
     return (
         select_topright_corner(base),
         select_topleft_corner(base),
