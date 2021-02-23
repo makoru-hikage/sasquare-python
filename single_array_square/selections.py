@@ -25,6 +25,30 @@ def select_column(base, column_index):
         get_line_indices(base)
     )
 
+def get_even_square_center_q1(base):
+    if base % 2 != 0:
+        return 0
+    return get_intersection_index(
+        base,
+        get_median_base(base),
+        get_median_base(base)
+    )
+
+def get_even_square_center_q2(base):
+    if base % 2 != 0:
+        return 0
+    return get_even_square_center_q1(base) + 1
+
+def get_even_square_center_q3(base):
+    if base % 2 != 0:
+        return 0
+    return get_even_square_center_q1(base) + base
+
+def get_even_square_center_q4(base):
+    if base % 2 != 0:
+        return 0
+    return get_even_square_center_q1(base) + base + 1
+
 def select_center(base):
     if base % 2 != 0:
         return (get_intersection_index(
@@ -32,12 +56,12 @@ def select_center(base):
             get_median_base(base),
             get_median_base(base)
         ),)
-    else:
-        q1 = get_intersection_index(base, get_median_base(base), get_median_base(base))
-        q2 = q1 + 1
-        q3 = q1 + base
-        q4 = q1 + base + 1
-        return (q1, q2, q3, q4)
+    return (
+        get_even_square_center_q1,
+        get_even_square_center_q2,
+        get_even_square_center_q3,
+        get_even_square_center_q4,
+    )
 
 def reverse_descending_index(base, descending_index):
     return get_opposite_index(
