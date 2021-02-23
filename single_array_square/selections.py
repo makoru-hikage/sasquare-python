@@ -111,3 +111,23 @@ def select_ascending_slope(base, ascending_index):
         partial(get_asc_nth_cell, base, ascending_index),
         get_line_indices(cell_count)
     )
+
+def select_topright_corner(base):
+    return 1
+
+def select_topleft_corner(base):
+    return base
+
+def select_bottomright_corner(base):
+    return base*base - (base - 1)
+
+def select_bottomleft_corner(base):
+    return base*base
+
+def select_all_corners
+    return (
+        select_topright_corner,
+        select_topleft_corner,
+        select_bottomright_corner,
+        select_bottomleft_corner
+    )
