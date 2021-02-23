@@ -57,10 +57,10 @@ def select_center(base):
             get_median_base(base)
         ),)
     return (
-        get_even_square_center_q1,
-        get_even_square_center_q2,
-        get_even_square_center_q3,
-        get_even_square_center_q4,
+        get_even_square_center_q1(base),
+        get_even_square_center_q2(base),
+        get_even_square_center_q3(base),
+        get_even_square_center_q4(base),
     )
 
 def reverse_descending_index(base, descending_index):
