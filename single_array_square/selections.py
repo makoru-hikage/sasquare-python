@@ -14,16 +14,16 @@ def get_column_nth_cell (base, column_index, nth_cell):
     return get_intersection_index(base, nth_cell, column_index)
 
 def select_row(base, row_index):
-    return map (
+    return tuple(map (
         partial(get_row_nth_cell, base, row_index),
         get_line_indices(base)
-    )
+    ))
 
 def select_column(base, column_index):
-    return map (
+    return tuple(map (
         partial(get_column_nth_cell, base, column_index),
         get_line_indices(base)
-    )
+    ))
 
 def get_even_square_center_q1(base):
     return get_intersection_index(
@@ -92,17 +92,17 @@ def get_asc_nth_cell(b, a, n):
 
 def select_descending_slope(base, descending_index):
     cell_count = count_slope_cells(base, descending_index)
-    return map (
+    return tuple(map(
         partial(get_desc_nth_cell,base, descending_index),
         get_line_indices(cell_count)
-    )
+    ))
 
 def select_ascending_slope(base, ascending_index):
     cell_count = count_slope_cells(base, ascending_index)
-    return map (
+    return tuple(map(
         partial(get_asc_nth_cell, base, ascending_index),
         get_line_indices(cell_count)
-    )
+    ))
 
 def select_topright_corner(base):
     return 1
