@@ -26,8 +26,6 @@ def select_column(base, column_index):
     )
 
 def get_even_square_center_q1(base):
-    if base % 2 != 0:
-        return 0
     return get_intersection_index(
         base,
         get_median_base(base),
@@ -35,18 +33,12 @@ def get_even_square_center_q1(base):
     )
 
 def get_even_square_center_q2(base):
-    if base % 2 != 0:
-        return 0
     return get_even_square_center_q1(base) + 1
 
 def get_even_square_center_q3(base):
-    if base % 2 != 0:
-        return 0
     return get_even_square_center_q1(base) + base
 
 def get_even_square_center_q4(base):
-    if base % 2 != 0:
-        return 0
     return get_even_square_center_q1(base) + base + 1
 
 def select_center(base):
