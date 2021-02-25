@@ -1,6 +1,12 @@
 from math import floor
 from math import ceil
 
+def row_index_is_valid(base, index):
+    return index >= 1 and index <= base
+
+def column_index_is_valid(base, index):
+    return index >= 1 and index <= base
+
 def get_row_index(base, cell_index):
     return ceil(cell_index/base)
 
@@ -27,6 +33,9 @@ def get_slope_intersection_diff (base, descending_index):
 
 def count_square_slopes(base):
     return 2*base - 1
+
+def slope_index_is_valid(base, index):
+    return index >= 1 and index <= count_square_slopes(base)
 
 def get_descending_index(base, cell_index):
     return base - get_intersection_diff(base, cell_index)
