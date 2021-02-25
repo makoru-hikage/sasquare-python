@@ -1,4 +1,5 @@
 from .helpers import *
+from .selections import *
 
 def unselected_asterisk_cell(selected_cells, index):
     if int(index) in selected_cells:
@@ -25,3 +26,45 @@ def print_square_to_stdout(base, selected_cells):
     )
 
     print(*cells)
+
+def print_row(base, row_index):
+    if row_index_is_valid(base, row_index):
+        print_square_to_stdout(base, select_row(base, row_index))
+    else:
+        err = "The index must be between 1 and " + str(base)
+        print(err)
+
+def print_column(base, column_index):
+    if column_index_is_valid(base, column_index):
+        print_square_to_stdout(base, select_column(base, column_index))
+    else:
+        err = "The index must be between 1 and " + str(base)
+        print(err)
+
+def print_descending_slope(base, descending_index):
+    if slope_index_is_valid(base, descending_index):
+        print_square_to_stdout(
+            base,
+            select_descending_slope(base, descending_index)
+        )
+    else:
+        slopes_count = count_square_slopes(base)
+        err = "The index must be between 1 and " + slopes_count
+        print(err)
+
+def print_ascending_slope(base, ascending_index):
+    if slope_index_is_valid(base, ascending_index):
+        print_square_to_stdout(
+            base,
+            select_ascending_slope(base, ascending_index)
+        )
+    else:
+        slopes_count = count_square_slopes(base)
+        err = "The index must be between 1 and " + slopes_count
+        print(err)
+
+def print_all_corners(base):
+    print_square_to_stdout(base, select_all_corners(base))
+
+def print_center(base):
+    print_square_to_stdout(base, select_center(base))
