@@ -50,7 +50,7 @@ def print_descending_slope(base, descending_index):
         )
     else:
         slopes_count = count_square_slopes(base)
-        err = "The index must be between 1 and " + slopes_count
+        err = "The index must be between 1 and " + str(slopes_count)
         print(err)
 
 def print_ascending_slope(base, ascending_index):
@@ -61,7 +61,7 @@ def print_ascending_slope(base, ascending_index):
         )
     else:
         slopes_count = count_square_slopes(base)
-        err = "The index must be between 1 and " + slopes_count
+        err = "The index must be between 1 and " + str(slopes_count)
         print(err)
 
 def print_all_corners(base):
