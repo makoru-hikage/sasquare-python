@@ -4,10 +4,7 @@ from functools import partial
 from math import log10
 
 from single_array_square import selections
-from single_array_square import parts
 from single_array_square import outputs
-from single_array_square import helpers
-from single_array_square import symmetry
 
 print_usage = """
 sasquare base [selection_type] [selection_value]
@@ -44,36 +41,42 @@ def run_selection(base, selection_type, selection_value = None):
             sys.exit()
         index = int(selection_value[0])
         outputs.print_ascending_slope(base, index)
+
     elif selection_type in ('A', 'ascending-opposite'):
         if selection_value is None:
             print_help()
             sys.exit()
         index = int(selection_value[0])
         outputs.print_ascending_opposites(base, index)
+
     elif selection_type in ('c', 'column'):
         if selection_value is None:
             print_help()
             sys.exit()
         index = int(selection_value[0])
         outputs.print_column(base, index)
+
     elif selection_type in ('C', 'vertical-opposite'):
         if selection_value is None:
             print_help()
             sys.exit()
         index = int(selection_value[0])
         outputs.print_vertical_opposites(base, index)
+
     elif selection_type in ('d', 'descending-slope'):
         if selection_value is None:
             print_help()
             sys.exit()
         index = int(selection_value[0])
         outputs.print_descending_slope(base, index)
+
     elif selection_type in ('D', 'descending-opposite'):
         if selection_value is None:
             print_help()
             sys.exit()
         index = int(selection_value[0])
         outputs.print_descending_opposites(base, index)
+
     elif selection_type in ('j', 'corners'):
         if selection_value is None or len(selection_value) < 1:
             outputs.print_all_corners(base)
@@ -89,14 +92,17 @@ def run_selection(base, selection_type, selection_value = None):
             print_help()
             sys.exit()
         outputs.print_square_to_stdout(base, (corners[index],))
+
     elif selection_type in ('m', 'center'):
         outputs.print_center(base)
+
     elif selection_type in ('r', 'row'):
         if selection_value is None:
             print_help()
             sys.exit()
         index = int(selection_value[0])
         outputs.print_row(base, index)
+
     elif selection_type in ('R', 'horizontal-opposite'):
         if selection_value is None:
             print_help()
@@ -104,28 +110,26 @@ def run_selection(base, selection_type, selection_value = None):
         index = int(selection_value[0])
         outputs.print_horizontal_opposites(base, index)
 
-
-
-
 def main():
     parser = argparse.ArgumentParser(add_help=False, usage=print_usage)
 
-    parser.add_argument("base", help="the integer multiplied by itself", type=int)
+    parser.add_argument("base", type=int)
     parser.add_argument("selection_type", nargs='?')
     parser.add_argument("selection_value", nargs='*')
     args = parser.parse_args()
-
-    base = args.base
-    selection_type = args.selection_type
-    selection_value = args.selection_value
 
     #Print a newline
     print()
 
     if selection_type is None:
+        ## Print filled square by default
         outputs.print_square_to_stdout(base, range(1, base**2 + 1))
     else:
-        run_selection(base, selection_type, selection_value)
+        run_selection(
+            args.base,
+            args.selection_type,
+            args.selection_value
+        )
 
 
 if __name__ == "__main__":
