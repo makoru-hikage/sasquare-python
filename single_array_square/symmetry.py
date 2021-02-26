@@ -33,8 +33,8 @@ def descending_opposite(base, cell_index):
 
     return get_intersection_index(
         base,
-        opposite_row_index,
-        opposite_column_index
+        o_is - opposite_row_index,
+        o_is - opposite_column_index
     )
 
 def ascending_opposite(base, cell_index):
