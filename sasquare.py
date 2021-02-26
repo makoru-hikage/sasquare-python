@@ -82,16 +82,7 @@ def run_selection(base, selection_type, selection_value = None):
             outputs.print_all_corners(base)
             sys.exit(0)
         index = selection_value[0]
-        corners = {
-            "tr": selections.select_topright_corner(base),
-            "tl": selections.select_topleft_corner(base),
-            "br": selections.select_bottomright_corner(base),
-            "bl": selections.select_bottomleft_corner(base)
-        }
-        if index not in corners.keys():
-            print_help()
-            sys.exit()
-        outputs.print_square_to_stdout(base, (corners[index],))
+        outputs.print_one_corner(base, index)
 
     elif selection_type in ('m', 'center'):
         outputs.print_center(base)
@@ -121,7 +112,7 @@ def main():
     #Print a newline
     print()
 
-    if selection_type is None:
+    if args.selection_type is None:
         ## Print filled square by default
         outputs.print_square_to_stdout(base, range(1, base**2 + 1))
     else:

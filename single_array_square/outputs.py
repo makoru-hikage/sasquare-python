@@ -67,6 +67,22 @@ def print_ascending_slope(base, ascending_index):
 def print_all_corners(base):
     print_square_to_stdout(base, select_all_corners(base))
 
+def print_one_corner(base, index):
+    result_tuple = ()
+    if index == "tr":
+        result_tuple = (select_topright_corner(base),)
+    elif index == "tl":
+        result_tuple = (select_topleft_corner(base),)
+    elif index == "br":
+        result_tuple = (select_bottomright_corner(base),)
+    elif index == "bl":
+        result_tuple = (select_bottomleft_corner(base),)
+    else:
+        print ("Please input only 'tr', 'tl', 'br', 'bl' or none.\n")
+        return None
+
+    print_square_to_stdout(base, result_tuple)
+
 def print_center(base):
     print_square_to_stdout(base, select_center(base))
 
