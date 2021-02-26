@@ -10,6 +10,9 @@ def unselected_asterisk_cell(selected_cells, index):
 def print_base_multiple_newline(base, index):
     if int(index) % base == 0:
         return index + '\n'
+    # While Python separates the elements of tuple
+    # with spaces in print, it never adds space in the beginning;
+    # This aligns the first printed row
     elif int(index) == 1:
         return ' ' + index
     return index
