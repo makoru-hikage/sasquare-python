@@ -23,10 +23,22 @@ def get_intersection_index (base, row_index, column_index):
     return column_index + row_index*base - base
 
 def get_intersection_sum(base, cell_index):
-    return get_row_index(cell_index) + get_column_index(cell_index)
+    return get_row_index(
+        base,
+        cell_index
+    ) + get_column_index(
+        base,
+        cell_index
+    )
 
 def get_intersection_diff(base, cell_index):
-    return get_row_index(cell_index) - get_column_index(cell_index)
+    return get_row_index(
+        base,
+        cell_index
+    ) - get_column_index(
+        base,
+        cell_index
+    )
 
 def get_slope_intersection_diff (base, descending_index):
     return base - descending_index
