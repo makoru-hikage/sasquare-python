@@ -34,47 +34,35 @@ selection_types:
 def print_help():
     print(print_usage)
 
+def check_input_from_arg (input):
+    if input is None:
+        print_help()
+        sys.exit()
+    return input
+
 def run_selection(base, selection_type, selection_value = None):
     if selection_type in ('a', 'ascending-slope'):
-        if selection_value is None:
-            print_help()
-            sys.exit()
-        index = int(selection_value[0])
+        index = check_input_from_arg(int(selection_value[0]))
         outputs.print_ascending_slope(base, index)
 
     elif selection_type in ('A', 'ascending-opposite'):
-        if selection_value is None:
-            print_help()
-            sys.exit()
-        index = int(selection_value[0])
+        index = check_input_from_arg(int(selection_value[0]))
         outputs.print_ascending_opposites(base, index)
 
     elif selection_type in ('c', 'column'):
-        if selection_value is None:
-            print_help()
-            sys.exit()
-        index = int(selection_value[0])
+        index = check_input_from_arg(int(selection_value[0]))
         outputs.print_column(base, index)
 
     elif selection_type in ('C', 'vertical-opposite'):
-        if selection_value is None:
-            print_help()
-            sys.exit()
-        index = int(selection_value[0])
+        index = check_input_from_arg(int(selection_value[0]))
         outputs.print_vertical_opposites(base, index)
 
     elif selection_type in ('d', 'descending-slope'):
-        if selection_value is None:
-            print_help()
-            sys.exit()
-        index = int(selection_value[0])
+        index = check_input_from_arg(int(selection_value[0]))
         outputs.print_descending_slope(base, index)
 
     elif selection_type in ('D', 'descending-opposite'):
-        if selection_value is None:
-            print_help()
-            sys.exit()
-        index = int(selection_value[0])
+        index = check_input_from_arg(int(selection_value[0]))
         outputs.print_descending_opposites(base, index)
 
     elif selection_type in ('j', 'corners'):
@@ -88,17 +76,11 @@ def run_selection(base, selection_type, selection_value = None):
         outputs.print_center(base)
 
     elif selection_type in ('r', 'row'):
-        if selection_value is None:
-            print_help()
-            sys.exit()
-        index = int(selection_value[0])
+        index = check_input_from_arg(int(selection_value[0]))
         outputs.print_row(base, index)
 
     elif selection_type in ('R', 'horizontal-opposite'):
-        if selection_value is None:
-            print_help()
-            sys.exit()
-        index = int(selection_value[0])
+        index = check_input_from_arg(int(selection_value[0]))
         outputs.print_horizontal_opposites(base, index)
 
 def main():
