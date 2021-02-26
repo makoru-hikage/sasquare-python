@@ -7,7 +7,7 @@ from single_array_square import selections
 from single_array_square import outputs
 
 print_usage = """
-sasquare base [selection_type] [selection_value]
+sasquare <base> [selection_type] [selection_value]
 
 Print a perfect square with a BASE of a chosen integer.
 Selects all the cells when options aren't specified.
@@ -87,8 +87,9 @@ def run_selection(base, selection_type, selection_value = None):
         outputs.print_x_cross(base)
 
 def main():
-    parser = argparse.ArgumentParser(add_help=False, usage=print_usage)
+    parser = argparse.ArgumentParser(usage=print_usage)
 
+    ## sasquare <base> [selection_type] [selection_value]
     parser.add_argument("base", type=int)
     parser.add_argument("selection_type", nargs='?')
     parser.add_argument("selection_value", nargs='*')
