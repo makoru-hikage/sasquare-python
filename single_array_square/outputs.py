@@ -1,5 +1,6 @@
 from .helpers import *
 from .selections import *
+from .symmetry import *
 
 def unselected_asterisk_cell(selected_cells, index):
     if int(index) in selected_cells:
@@ -68,3 +69,39 @@ def print_all_corners(base):
 
 def print_center(base):
     print_square_to_stdout(base, select_center(base))
+
+def print_horizontal_opposites(base, cell_index):
+    print_square_to_stdout(
+        base,
+        (
+            cell_index,
+            horizontal_opposite(base, cell_index)
+        )
+    )
+
+def print_vertical_opposites(base, cell_index):
+    print_square_to_stdout(
+        base,
+        (
+            cell_index,
+            vertical_opposite(base, cell_index)
+        )
+    )
+
+def print_ascending_opposites(base, cell_index):
+    print_square_to_stdout(
+        base,
+        (
+            cell_index,
+            ascending_opposite(base, cell_index)
+        )
+    )
+
+def print_descending_opposites(base, cell_index):
+    print_square_to_stdout(
+        base,
+        (
+            cell_index,
+            descending_opposite(base, cell_index)
+        )
+    )
