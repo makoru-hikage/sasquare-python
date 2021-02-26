@@ -11,7 +11,7 @@ def get_row_index(base, cell_index):
     return ceil(cell_index/base)
 
 def get_column_index(base, cell_index):
-    return cell_index - base * int(math.ceil(cell_index/base)) + base
+    return cell_index - base * int(ceil(cell_index/base)) + base
 
 def get_median_base(base):
     return int(floor((base + 1) / 2))
