@@ -64,6 +64,16 @@ def print_ascending_slope(base, ascending_index):
         err = "The index must be between 1 and " + str(slopes_count)
         print(err)
 
+def print_x_cross(base):
+    ## Ensure no duplicates by using set
+    set_a = set(select_ascending_slope(base, base))
+    set_d = set(select_descending_slope(base, base))
+    set_d_trimmed = set_d - set_a
+    ## Make the result a tuple as usual
+    x = tuple(list(set_a) + list(set_d_trimmed))
+
+    print_square_to_stdout(base, x)
+
 def print_all_corners(base):
     print_square_to_stdout(base, select_all_corners(base))
 

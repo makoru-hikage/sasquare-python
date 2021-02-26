@@ -83,6 +83,9 @@ def run_selection(base, selection_type, selection_value = None):
         index = check_input_from_arg(int(selection_value[0]))
         outputs.print_horizontal_opposites(base, index)
 
+    elif selection_type in ('x', 'cross'):
+        outputs.print_x_cross(base)
+
 def main():
     parser = argparse.ArgumentParser(add_help=False, usage=print_usage)
 
