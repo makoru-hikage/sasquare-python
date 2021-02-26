@@ -9,7 +9,7 @@ from single_array_square import outputs
 from single_array_square import helpers
 
 print_usage = """
-sasquare base [-h] [selection_type] [selection_value]
+sasquare base [selection_type] [selection_value]
 
 Print a perfect square with a BASE of a chosen integer.
 Selects all the cells when options aren't specified.
@@ -88,7 +88,6 @@ def main():
     parser.add_argument("base", help="the integer multiplied by itself", type=int)
     parser.add_argument("selection_type", nargs='?')
     parser.add_argument("selection_value", nargs='*')
-    parser.add_argument("-h", action="store_false")
     args = parser.parse_args()
 
     base = args.base
@@ -97,10 +96,6 @@ def main():
 
     #Print a newline
     print()
-
-    if args.h is not None:
-        print_help()
-        sys.exit(0)
 
     if selection_type is None:
         outputs.print_square_to_stdout(base, range(1, base**2 + 1))
