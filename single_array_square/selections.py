@@ -64,20 +64,11 @@ def reverse_descending_index(base, descending_index):
 def slope_index_orientation (base, slope_index):
     return floor(slope_index/base)
 
-def descending_slope_orientation(base, descending_index):
-    return compose(
-        partial(slope_index_orientation,base),
-        partial(reverse_descending_index,base)
-    )(descending_index)
-
-def ascending_slope_orientation (base, ascending_index):
-    return slope_index_orientation(base, ascending_index)
-
 def ascending_base_orientation(base, ascending_index):
-    return base**ascending_slope_orientation(base,ascending_index)
+    return base**slope_index_orientation(base,ascending_index)
 
 def descending_base_orientation(base, descending_index):
-    return base**descending_slope_orientation(base,descending_index)
+    return base** (2 + slope_index_orientation(base, -(descending_index)))
 
 def get_desc_nth_cell(b, d, n):
     id = get_slope_intersection_diff(b, d)
