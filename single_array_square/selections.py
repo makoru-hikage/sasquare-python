@@ -61,25 +61,19 @@ def reverse_descending_index(base, descending_index):
         descending_index
     )
 
-def slope_index_orientation (base, slope_index):
-    return floor(slope_index/base)
-
 def ascending_base_orientation(base, ascending_index):
-    return base**slope_index_orientation(base,ascending_index)
+    return base**floor(ascending_index/base)
 
 def descending_base_orientation(base, descending_index):
-    return base** (2 + slope_index_orientation(base, -(descending_index)))
+    return base** (2 + floor(-(descending_index)/base))
 
 def get_desc_nth_cell(b, d, n):
-    id = get_slope_intersection_diff(b, d)
     y = descending_base_orientation(b, d)
-    return n + b*n - b + y*abs(id)
+    return n + b*n - b + y*abs(b-d)
 
 def get_asc_nth_cell(b, a, n):
-    id = get_slope_intersection_diff(b, a)
     y = ascending_base_orientation(b, a)
-    l = count_slope_cells(b, a)
-    return b*l + b - b*n - l + n - y*id
+    return b**2 - b*abs(b-a) - b*n + abs(b-a) + n - y*(b-a)
 
 def select_descending_slope(base, descending_index):
     cell_count = count_slope_cells(base, descending_index)
