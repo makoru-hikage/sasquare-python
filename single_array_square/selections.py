@@ -61,19 +61,26 @@ def reverse_descending_index(base, descending_index):
         descending_index
     )
 
-def ascending_base_orientation(base, ascending_index):
-    return base**floor(ascending_index/base)
-
-def descending_base_orientation(base, descending_index):
-    return base** (2 + floor(-(descending_index)/base))
-
 def get_desc_nth_cell(b, d, n):
-    y = descending_base_orientation(b, d)
-    return n + b*n - b + y*abs(b-d)
+    """
+    Get the nth cell of a descending slant.
+
+    @param int b: the base of the square
+    @param int d: the descending index
+    @param int n: the nth cell of the descending index
+    """
+    return get_intersection_index(b,n,n) \
+        + b**(2 + floor(-(d)/b))*abs(b-d)
 
 def get_asc_nth_cell(b, a, n):
-    y = ascending_base_orientation(b, a)
-    return b**2 - b*abs(b-a) - b*n + abs(b-a) + n - y*(b-a)
+    """
+    Get the nth cell of an ascending slant.
+
+    @param int b: the base of the square
+    @param int a: the descending index
+    @param int n: the nth cell of the descending index
+    """
+    return b**2 - b*n + n - (abs(b-a)*(b-1) + b**floor(a/b)*(b-a))
 
 def select_descending_slope(base, descending_index):
     cell_count = count_slope_cells(base, descending_index)
