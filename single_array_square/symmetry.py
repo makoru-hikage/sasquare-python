@@ -1,4 +1,4 @@
-from .parts import *
+from single_array_square.parts import *
 
 def horizontal_opposite(base, cell_index):
     return get_intersection_index(

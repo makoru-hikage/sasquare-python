@@ -1,8 +1,8 @@
 from functools import partial
 from math import floor
 
-from .parts import *
-from .helpers import compose
+from single_array_square.parts import *
+from single_array_square.helpers import *
 
 def get_line_indices (base):
     return range(1, base + 1)
