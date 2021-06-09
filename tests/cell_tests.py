@@ -68,5 +68,107 @@ class TestCellFunctions(unittest.TestCase):
         )
         self.assertEqual(list(all_pairs), supposed_pairs)
 
+    def test_center_of_an_odd_square (self):
+        base = 5
+        ## a tuple of a lone element is still a tuple
+        supposed_cell_index = (13,)
+
+        self.assertEqual(select_center(base), supposed_cell_index)
+
+    def test_center_of_an_even_square (self):
+        base = 6
+        supposed_cell_indices = (15,16,21,22)
+
+        self.assertEqual(select_center(base), supposed_cell_indices)
+
+    def test_corners_of_b5(self):
+        base = 5
+        supposed_cell_indices = (1,5,21,25)
+
+        self.assertEqual(
+            select_all_corners(base),
+            supposed_cell_indices
+        )
+
+    def test_n_of_slant_foreach_kind_in_b5(self):
+        base = 5
+        n_of_all_slants = count_square_slants(base)
+        supposed_count = 9
+
+        self.assertEqual(n_of_all_slants, supposed_count)
+
+    def test_descending_slants_of_b5(self):
+        base = 5
+
+        slant1 = (21,)
+        slant2 = (16,22)
+        slant3 = (11,17,23)
+        slant4 = (6,12,18,24)
+        slant5 = (1,7,13,19,25)
+        slant6 = (2,8,14,20)
+        slant7 = (3,9,15)
+        slant8 = (4,10)
+        slant9 = (5,)
+
+        supposed_slants = [
+            slant1,
+            slant2,
+            slant3,
+            slant4,
+            slant5,
+            slant6,
+            slant7,
+            slant8,
+            slant9,
+        ]
+
+        n_of_all_slants = count_square_slants(base)
+
+        all_slants = map (
+            partial(select_descending_slant, base),
+            range (1, n_of_all_slants + 1)
+        )
+
+        self.assertEqual(list(all_slants), supposed_slants)
+
+    def test_ascending_slants_of_b5(self):
+        base = 5
+
+        slant1 = (1,)
+        slant2 = (6,2)
+        slant3 = (11,7,3)
+        slant4 = (16,12,8,4)
+        slant5 = (21,17,13,9,5)
+        slant6 = (22,18,14,10)
+        slant7 = (23,19,15)
+        slant8 = (24,20)
+        slant9 = (25,)
+
+        supposed_slants = [
+            slant1,
+            slant2,
+            slant3,
+            slant4,
+            slant5,
+            slant6,
+            slant7,
+            slant8,
+            slant9,
+        ]
+
+        n_of_all_slants = count_square_slants(base)
+
+        all_slants = map (
+            partial(select_ascending_slant, base),
+            range (1, n_of_all_slants + 1)
+        )
+
+        self.assertEqual(list(all_slants), supposed_slants)
+
+
+
+
+
+
 if __name__ == '__main__':
     unittest.main()
