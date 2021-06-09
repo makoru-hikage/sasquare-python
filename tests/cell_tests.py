@@ -165,10 +165,5 @@ class TestCellFunctions(unittest.TestCase):
 
         self.assertEqual(list(all_slants), supposed_slants)
 
-
-
-
-
-
 if __name__ == '__main__':
     unittest.main()
