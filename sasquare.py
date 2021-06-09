@@ -14,11 +14,11 @@ Selects all the cells when options aren't specified.
 Some `selection_type`s need `selection_value`s, some don't
 
 selection_types:
-    a, ascending-slope INDEX          select all cells in an ascending slope
+    a, ascending-slant INDEX          select all cells in an ascending slant
     A, ascending-opposite INDEX       select a cell and its opposite along an ascending slant
     c, column INDEX                   select all cells within a column by column INDEX
     C, vertical-opposite INDEX        select a cell and its opposite along a column
-    d, descending-slope INDEX         select all cells in a descending slope
+    d, descending-slant INDEX         select all cells in a descending slant
     D, descending-opposite INDEX      select a cell and its opposite along an descending slant
     j, corner [INDEX]                 select a particular corner, no INDEX selects all
                                             tl for the top-left corner
@@ -28,7 +28,7 @@ selection_types:
     m, center                         select the central part of a square
     r, row INDEX                      select all cells within a row by row INDEX
     R, horizontal-opposite INDEX      select a cell and its opposite along a row
-    x, cross                          select the longest two slopes
+    x, cross                          select the longest two slants
     """
 
 def print_help():
@@ -41,9 +41,9 @@ def check_input_from_arg (input):
     return input
 
 def run_selection(base, selection_type, selection_value = None):
-    if selection_type in ('a', 'ascending-slope'):
+    if selection_type in ('a', 'ascending-slant'):
         index = check_input_from_arg(int(selection_value[0]))
-        outputs.print_ascending_slope(base, index)
+        outputs.print_ascending_slant(base, index)
 
     elif selection_type in ('A', 'ascending-opposite'):
         index = check_input_from_arg(int(selection_value[0]))
@@ -57,9 +57,9 @@ def run_selection(base, selection_type, selection_value = None):
         index = check_input_from_arg(int(selection_value[0]))
         outputs.print_vertical_opposites(base, index)
 
-    elif selection_type in ('d', 'descending-slope'):
+    elif selection_type in ('d', 'descending-slant'):
         index = check_input_from_arg(int(selection_value[0]))
-        outputs.print_descending_slope(base, index)
+        outputs.print_descending_slant(base, index)
 
     elif selection_type in ('D', 'descending-opposite'):
         index = check_input_from_arg(int(selection_value[0]))
