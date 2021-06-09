@@ -57,7 +57,7 @@ def select_center(base):
 
 def reverse_descending_index(base, descending_index):
     return get_opposite_index(
-        count_square_slopes(base),
+        count_square_slants(base),
         descending_index
     )
 
@@ -82,15 +82,15 @@ def get_asc_nth_cell(b, a, n):
     """
     return b**2 - b*n + n - (abs(b-a)*(b-1) + b**floor(a/b)*(b-a))
 
-def select_descending_slope(base, descending_index):
-    cell_count = count_slope_cells(base, descending_index)
+def select_descending_slant(base, descending_index):
+    cell_count = count_slant_cells(base, descending_index)
     return tuple(map(
         partial(get_desc_nth_cell,base, descending_index),
         get_line_indices(cell_count)
     ))
 
-def select_ascending_slope(base, ascending_index):
-    cell_count = count_slope_cells(base, ascending_index)
+def select_ascending_slant(base, ascending_index):
+    cell_count = count_slant_cells(base, ascending_index)
     return tuple(map(
         partial(get_asc_nth_cell, base, ascending_index),
         get_line_indices(cell_count)

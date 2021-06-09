@@ -45,32 +45,32 @@ def print_column(base, column_index):
         err = "The index must be between 1 and " + str(base)
         print(err)
 
-def print_descending_slope(base, descending_index):
-    if slope_index_is_valid(base, descending_index):
+def print_descending_slant(base, descending_index):
+    if slant_index_is_valid(base, descending_index):
         print_square_to_stdout(
             base,
-            select_descending_slope(base, descending_index)
+            select_descending_slant(base, descending_index)
         )
     else:
-        slopes_count = count_square_slopes(base)
-        err = "The index must be between 1 and " + str(slopes_count)
+        slants_count = count_square_slants(base)
+        err = "The index must be between 1 and " + str(slants_count)
         print(err)
 
-def print_ascending_slope(base, ascending_index):
-    if slope_index_is_valid(base, ascending_index):
+def print_ascending_slant(base, ascending_index):
+    if slant_index_is_valid(base, ascending_index):
         print_square_to_stdout(
             base,
-            select_ascending_slope(base, ascending_index)
+            select_ascending_slant(base, ascending_index)
         )
     else:
-        slopes_count = count_square_slopes(base)
-        err = "The index must be between 1 and " + str(slopes_count)
+        slants_count = count_square_slants(base)
+        err = "The index must be between 1 and " + str(slants_count)
         print(err)
 
 def print_x_cross(base):
     ## Ensure no duplicates by using set
-    set_a = set(select_ascending_slope(base, base))
-    set_d = set(select_descending_slope(base, base))
+    set_a = set(select_ascending_slant(base, base))
+    set_d = set(select_descending_slant(base, base))
     set_d_trimmed = set_d - set_a
     ## Make the result a tuple as usual
     x = tuple(list(set_a) + list(set_d_trimmed))

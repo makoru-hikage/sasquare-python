@@ -46,14 +46,14 @@ def get_intersection_diff(base, cell_index):
         cell_index
     )
 
-def get_slope_intersection_diff (base, descending_index):
+def get_slant_intersection_diff (base, descending_index):
     return base - descending_index
 
-def count_square_slopes(base):
+def count_square_slants(base):
     return 2*base - 1
 
-def slope_index_is_valid(base, index):
-    return index >= 1 and index <= count_square_slopes(base)
+def slant_index_is_valid(base, index):
+    return index >= 1 and index <= count_square_slants(base)
 
 def get_descending_index(base, cell_index):
     return base - get_intersection_diff(base, cell_index)
@@ -61,5 +61,5 @@ def get_descending_index(base, cell_index):
 def get_ascending_index(base, cell_index):
     return get_intersection_sum(base, cell_index) - 1
 
-def count_slope_cells(base, slope_index):
-    return base - abs(base - slope_index)
+def count_slant_cells(base, slant_index):
+    return base - abs(base - slant_index)
