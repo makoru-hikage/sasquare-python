@@ -13,6 +13,12 @@ def get_row_index(base, cell_index):
 def get_column_index(base, cell_index):
     return cell_index - base * int(ceil(cell_index/base)) + base
 
+def get_row_column_pair (base, cell_index):
+    return (
+        get_row_index(base, cell_index),
+        get_column_index(base, cell_index)
+    )
+
 def get_center_index(base):
     return int(floor((base + 1) / 2))
 
